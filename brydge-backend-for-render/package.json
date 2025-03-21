@@ -20,7 +20,7 @@
     "mongoose": "^8.12.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.2",
-    "node-acoustid": "^1.2.2"
+    "node-acoustid": "^1.1.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
