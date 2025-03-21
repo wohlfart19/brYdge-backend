@@ -1,26 +1,56 @@
 const mongoose = require('mongoose');
 
-// Update the ClearanceRequest schema to support the enhanced workflow
 const clearanceRequestSchema = new mongoose.Schema({
   sample: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Sample',
-    required: true
+    title: {
+      type: String,
+      required: true
+    },
+    artist: {
+      type: String,
+      required: true
+    },
+    fileUrl: {
+      type: String,
+      required: true
+    }
   },
   originalSong: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Song',
-    required: true
+    title: {
+      type: String,
+      required: true
+    },
+    artist: {
+      type: String,
+      required: true
+    },
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Song',
+      required: true
+    }
   },
   requestedBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    }
   },
   rightsHolder: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    }
   },
   status: {
     type: String,
@@ -34,9 +64,6 @@ const clearanceRequestSchema = new mongoose.Schema({
   responseDate: {
     type: Date
   },
-  counterDate: {
-    type: Date
-  },
   finalizedDate: {
     type: Date
   },
@@ -48,9 +75,7 @@ const clearanceRequestSchema = new mongoose.Schema({
     type: String
   },
   royaltyPercentage: {
-    type: Number,
-    min: 0,
-    max: 100
+    type: Number
   },
   notes: {
     type: String
@@ -58,10 +83,8 @@ const clearanceRequestSchema = new mongoose.Schema({
   counterProposal: {
     type: String
   },
-  matchConfidence: {
-    type: Number,
-    min: 0,
-    max: 1
+  counterDate: {
+    type: Date
   }
 });
 
